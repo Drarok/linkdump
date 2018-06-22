@@ -23,9 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '+!c2tkx8ey(%f-x^lq9s^(r9b*$v@ml2trldhe*n%-#@ijm&yv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'links.drarok.com',
+]
 
 
 # Application definition
@@ -57,7 +60,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'linkdump/templates/'
+            os.path.join(BASE_DIR, 'linkdump/templates/'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
