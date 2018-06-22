@@ -1,0 +1,59 @@
+.form {
+
+    padding: 25px;
+
+    &--centered {
+        max-width: 500px;
+        margin: 20px auto;
+        border: 1px solid @c-brand;
+        border-radius: 8px;
+        background-color: @c-brand--light;
+    }
+
+    & > .errorlist {
+        color: @c-brand--darker;
+        list-style: none;
+        padding: 0;
+
+        &:before {
+            content: 'Please correct the following errors:';
+            font-weight: bold;
+        }
+    }
+
+    & > p {
+        font-size: 140%;
+
+        & > label {
+            display: block;
+        }
+
+        & > input {
+            font-size: inherit;
+            width: 100%;
+        }
+    }
+
+    & > button[type=submit] {
+        font-size: inherit;
+        padding: 8px 15px;
+
+        // Position the submit button on the right.
+        display: block;
+        margin-right: 0;
+        margin-left: auto;
+
+        background-color: @c-brand--lighter;
+        border-radius: 5px;
+        border: 1px solid @c-brand--dark;
+        color: @c-brand--dark;
+
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: @c-brand--light;
+            border-color: @c-brand--darker;
+            color: @c-brand--darker;
+        }
+    }
+}

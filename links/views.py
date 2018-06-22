@@ -1,11 +1,11 @@
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.shortcuts import render
 
-from .models import Link
 
-
+@login_required
 def index(request):
-    all_links = Link.objects.all()
+    all_links = request.user.links.all()
     paginator = Paginator(all_links, 50)
     page = request.GET.get('page')
     context = {
