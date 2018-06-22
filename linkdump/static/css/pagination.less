@@ -1,0 +1,35 @@
+.pagination {
+    color: black;
+    font-size: 150%;
+    padding: 20px 0;
+    text-align: center;
+
+    &__link {
+        background-color: @c-brand--lighter;
+        border-radius: 5px;
+        border: 1px solid @c-brand--dark;
+        color: @c-brand--dark;
+        line-height: 110%;
+        margin: 0;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+
+        &--link:hover {
+            background-color: @c-brand--light;
+            border-color: @c-brand--darker;
+            color: @c-brand--darker;
+        }
+
+        &--placeholder {
+            border-color: desaturate(@c-brand--dark, 100%);
+            background-color: desaturate(@c-brand--lighter, 100%);
+            color: desaturate(@c-brand--dark, 100%);
+        }
+    }
+
+    &__page {
+        margin: 0 25px;
+    }
+}

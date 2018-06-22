@@ -1,0 +1,10 @@
+# Python compiled and cached assets.
+__pycache__
+*.py[co]
+
+# Database and data source files.
+db.sqlite3
+instapaper-export.csv
+
+# Compiled static assets – CSS, JS, etc.
+static/

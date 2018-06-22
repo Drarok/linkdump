@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block page_title %}{{ block.super }}Links{% endblock %}
+
+{% block content %}
+    <div class="links">
+        {% include 'includes/pagination.html' with page=links %}
+        {% for link in links %}
+            <div class="links__link">
+                <a target="_blank" href="{{ link.url }}">{{ link.title }}</a>
+                {% if link.selection %}
+                    ({{ link.selection }})
+                {% endif %}
+            </div>
+        {% endfor %}
+        {% include 'includes/pagination.html' with page=links %}
+    </div>
+{% endblock %}

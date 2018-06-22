@@ -1,0 +1,8 @@
+from django.db import models
+
+
+class Link(models.Model):
+    url = models.CharField(max_length=2000, null=False, unique=True)
+    title = models.CharField(max_length=2000, null=False, blank=True)
+    selection = models.CharField(max_length=2000, null=False, blank=True)
+    folder = models.CharField(max_length=30, null=False, blank=False)
