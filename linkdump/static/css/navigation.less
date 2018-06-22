@@ -1,0 +1,27 @@
+.navigation {
+
+    font-size: 140%;
+
+    &__list {
+        list-style: none;
+        padding: 25px 25px;
+        margin: 0;
+
+        &:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        &__item {
+            &--right {
+                display: block;
+                float: right;
+
+                a {
+                    color: @c-brand--dark;
+                }
+            }
+        }
+    }
+}
