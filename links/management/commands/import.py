@@ -30,4 +30,4 @@ class Command(BaseCommand):
                         updated += 1
                     [setattr(link, attr.lower(), value) for attr, value in row.items()]
                     link.save()
-            print(f'Updated {updated} links, created {created}.')
+            print('Updated %d links, created %d.' % (updated, created))
