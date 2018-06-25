@@ -21,8 +21,12 @@ class Command(BaseCommand):
         pathname = options['file']
         with open(pathname, 'r', newline='') as f:
             reader = csv.DictReader(f)
+            # We need to reverse all the rows since the instapaper export is backwards.
+            rows = []
+            for row in reader:
+                rows.append(row)
             with transaction.atomic():
-                for row in reader:
+                for row in reversed(rows):
                     link, is_created = Link.objects.get_or_create(url=row['URL'], user=user)
                     if is_created:
                         created += 1

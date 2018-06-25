@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block page_title %}{{ block.super }}Add Link{% endblock %}
+
+{% block content %}
+    <form class="form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if form.instance.pk %}Edit{% else %}Add{% endif %}</button>
+    </form>
+{% endblock %}

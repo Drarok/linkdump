@@ -7,10 +7,8 @@
         {% include 'includes/pagination.html' with page=links %}
         {% for link in links %}
             <div class="links__link">
-                <a target="_blank" href="{{ link.url }}">{{ link.title }}</a>
-                {% if link.selection %}
-                    ({{ link.selection }})
-                {% endif %}
+                <a target="_blank" href="{{ link.url }}" title="{{ link.selection }}">{{ link.title }}</a>
+                <a href="{% url 'links-edit' link_id=link.pk %}">Edit</a>
             </div>
         {% endfor %}
         {% include 'includes/pagination.html' with page=links %}
