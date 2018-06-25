@@ -6,6 +6,11 @@
     <form class="form" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">{% if form.instance.pk %}Edit{% else %}Add{% endif %}</button>
+        <div class="form__buttons">
+            {% if form.instance.pk %}
+                <button type="button" class="form__buttons__button form__buttons__button--delete">Delete</button>
+            {% endif %}
+            <button type="submit" class="form__buttons__button form__buttons__button--submit">{% if form.instance.pk %}Save{% else %}Add{% endif %}</button>
+        </div>
     </form>
 {% endblock %}
