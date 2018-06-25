@@ -107,6 +107,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LOGIN_REDIRECT_URL = 'links'
+LOGIN_URL = 'auth-login'
+LOGOUT_REDIRECT_URL = 'auth-login'
 
 
 # Internationalization
