@@ -1,11 +1,24 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block page_title %}{{ block.super }}Add Link{% endblock %}
 
 {% block content %}
     <form class="form" method="post">
         {% csrf_token %}
+        <input id="id_delete" type="text" name="delete" value="">
+
         {{ form.as_p }}
-        <button type="submit">{% if form.instance.pk %}Edit{% else %}Add{% endif %}</button>
+        <div class="form__buttons">
+            {% if form.instance.pk %}
+                <button id="id_delete_button" type="button" class="form__buttons__button form__buttons__button--delete">Delete</button>
+            {% endif %}
+            <button type="submit" class="form__buttons__button form__buttons__button--submit">{% if form.instance.pk %}Save{% else %}Add{% endif %}</button>
+        </div>
     </form>
+{% endblock %}
+
+{% block extra_script %}
+    <script src="{% static 'links/js/form.js' %}"></script>
 {% endblock %}

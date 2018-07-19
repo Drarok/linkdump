@@ -37,6 +37,9 @@ def edit(request, link_id):
     instance = get_object_or_404(Link, pk=link_id, user=request.user)
     form = LinkForm(request.POST or None, instance=instance)
     if request.method == 'POST':
+        if request.POST.get('delete', None) == 'yes':
+            instance.delete()
+            return redirect('links')
         if form.is_valid():
             form.save()
             return redirect('links')

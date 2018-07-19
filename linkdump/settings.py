@@ -107,6 +107,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LOGIN_REDIRECT_URL = 'links'
+LOGIN_URL = 'auth-login'
+LOGOUT_REDIRECT_URL = 'auth-login'
 
 
 # Internationalization
@@ -135,5 +137,6 @@ STATICFILES_FINDERS = [
 ]
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'linkdump', 'static'),
+    os.path.join(BASE_DIR, 'links', 'static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

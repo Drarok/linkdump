@@ -32,6 +32,6 @@ urlpatterns = [
     path(r'', redirect_home),
     path(r'links/', include(links.urls.urlpatterns)),
     path(r'auth/login/', auth_views.login, name='auth-login'),
-    path(r'auth/logout/', auth_views.logout, {'next_page': 'auth-login'}, name='auth-logout'),
+    path(r'auth/logout/', auth_views.logout, name='auth-logout'),
     path(r'admin/', admin.site.urls),
 ]
