@@ -135,10 +135,8 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'static_precompiler.finders.StaticPrecompilerFinder',
-
 ]
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'linkdump', 'static'),
-    os.path.join(BASE_DIR, 'links', 'static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
