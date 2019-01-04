@@ -13,7 +13,11 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 
 import dj_database_url
+import dotenv
 
+
+# Use .env file with precedence over actual environment
+dotenv.read_dotenv(override=True)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
