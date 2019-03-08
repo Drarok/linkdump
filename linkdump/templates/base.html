@@ -12,9 +12,9 @@
         {% if user.is_authenticated %}
             <nav class="navigation">
                 <ul class="navigation__list">
-                    <li class="navigation__list__item{% if request.resolver_match.view_name == 'links' %} navigation__list__item--active{% endif %}"><a href="{% url 'links' %}">Links</a></li>
-                    <li class="navigation__list__item{% if request.resolver_match.view_name == 'links-add' %} navigation__list__item--active{% endif %}"><a href="{% url 'links-add' %}">Add Link</a></li>
-                    <li class="navigation__list__item navigation__list__item--right"><a href="{% url 'auth-logout' %}">Log out</a></li>
+                    <li class="navigation__list__item{% if request.resolver_match.view_name == 'links:list' %} navigation__list__item--active{% endif %}"><a href="{% url 'links:list' %}">Links</a></li>
+                    <li class="navigation__list__item{% if request.resolver_match.view_name == 'links:add' %} navigation__list__item--active{% endif %}"><a href="{% url 'links:add' %}">Add Link</a></li>
+                    <li class="navigation__list__item navigation__list__item--right"><a href="{% url 'registration:logout' %}">Log out</a></li>
                 </ul>
             </nav>
         {% endif %}

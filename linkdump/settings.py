@@ -30,6 +30,7 @@ DEBUG = os.environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
+    'links.localhost',
     'links.drarok.com',
 ]
 
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'static_precompiler',
     'links',
+    'registration',
 ]
 
 if DEBUG:
@@ -108,9 +110,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOGIN_REDIRECT_URL = 'links'
-LOGIN_URL = 'auth-login'
-LOGOUT_REDIRECT_URL = 'auth-login'
+LOGIN_REDIRECT_URL = 'links:list'
+LOGIN_URL = 'registration:login'
+LOGOUT_REDIRECT_URL = 'registration:login'
 
 
 # Internationalization
