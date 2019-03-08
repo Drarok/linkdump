@@ -5,7 +5,7 @@ from . import views
 app_name = 'links'
 
 urlpatterns = [
-    path('', views.index, name='list'),
-    path('add/', views.add, name='add'),
+    path('', views.Index.as_view(), name='list'),
+    path('add/', views.Add.as_view(), name='add'),
     path('edit/<int:link_id>/', views.edit, name='edit'),
 ]
