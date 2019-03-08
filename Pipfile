@@ -9,6 +9,7 @@ django-static-precompiler = "*"
 django-dotenv = "*"
 dj-database-url = "*"
 django-extensions = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
