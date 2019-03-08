@@ -142,3 +142,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'linkdump', 'static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATIC_PRECOMPILER_DISABLE_AUTO_COMPILE = not DEBUG
