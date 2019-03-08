@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 
 
 class Link(models.Model):
@@ -17,3 +18,6 @@ class Link(models.Model):
 
     def __str__(self):
         return f'user_id={self.user_id}, url={self.url}'
+
+    def get_absolute_url(self):
+        return reverse('links:edit', kwargs={'pk': self.pk})

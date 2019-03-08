@@ -1,10 +1,7 @@
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
-from django.shortcuts import get_object_or_404, redirect, render
-from django.urls import reverse_lazy, reverse
-from django.views.decorators.http import require_http_methods
-from django.views.generic import TemplateView, FormView, CreateView
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView
 
 from .forms import LinkForm
 from .models import Link
@@ -32,16 +29,12 @@ class Add(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-@login_required
-@require_http_methods(['GET', 'POST'])
-def edit(request, link_id):
-    instance = get_object_or_404(Link, pk=link_id, user=request.user)
-    form = LinkForm(request.POST or None, instance=instance)
-    if request.method == 'POST':
-        if request.POST.get('delete', None) == 'yes':
-            instance.delete()
-            return redirect('links:list')
-        if form.is_valid():
-            form.save()
-            return redirect('links:list')
-    return render(request, 'links/form.html', {'form': form})
+class Edit(LoginRequiredMixin, UpdateView):
+    form_class = LinkForm
+    model = Link
+    success_url = reverse_lazy('links:list')
+
+
+class Delete(LoginRequiredMixin, DeleteView):
+    model = Link
+    success_url = reverse_lazy('links:list')

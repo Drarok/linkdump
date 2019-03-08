@@ -8,7 +8,7 @@
         {% for link in links %}
             <div class="links__link">
                 <a target="_blank" href="{{ link.url }}" title="{{ link.selection }}">{{ link.title }}</a>
-                <a href="{% url 'links:edit' link_id=link.pk %}">Edit</a>
+                <a href="{{ link.get_absolute_url }}">Edit</a>
             </div>
         {% endfor %}
         {% include 'includes/pagination.html' with page=links %}

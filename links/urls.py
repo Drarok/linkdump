@@ -7,5 +7,6 @@ app_name = 'links'
 urlpatterns = [
     path('', views.Index.as_view(), name='list'),
     path('add/', views.Add.as_view(), name='add'),
-    path('edit/<int:link_id>/', views.edit, name='edit'),
+    path('edit/<int:pk>/', views.Edit.as_view(), name='edit'),
+    path('delete/<int:pk>/', views.Delete.as_view(), name='delete'),
 ]

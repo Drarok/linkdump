@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block page_title %}{{ block.super }}Delete Link {{ link.title }}{% endblock %}
+
+{% block content %}
+    <form class="form" method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete link ‘{{ link.title }}’?</p>
+
+        <div class="form__buttons">
+            <a class="form__buttons__button" href="{{ link.get_absolute_url }}">Cancel</a>
+            <button type="submit" class="form__buttons__button form__buttons__button--delete">Delete</button>
+        </div>
+    </form>
+{% endblock %}
+
+{% block extra_script %}
+    <script src="{% static 'links/js/form.js' %}"></script>
+{% endblock %}

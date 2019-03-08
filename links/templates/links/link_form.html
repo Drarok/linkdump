@@ -12,7 +12,7 @@
         {{ form.as_p }}
         <div class="form__buttons">
             {% if form.instance.pk %}
-                <button id="id_delete_button" type="button" class="form__buttons__button form__buttons__button--delete">Delete</button>
+                <a class="form__buttons__button form__buttons__button--delete" href="{% url 'links:delete' pk=link.pk %}">Delete</a>
             {% endif %}
             <button type="submit" class="form__buttons__button form__buttons__button--submit">{% if form.instance.pk %}Save{% else %}Add{% endif %}</button>
         </div>
