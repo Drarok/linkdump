@@ -27,7 +27,7 @@ def add(request):
         form.instance.user_id = request.user.pk
         if form.is_valid():
             form.save()
-            return redirect('links')
+            return redirect('links:list')
     return render(request, 'links/form.html', {'form': form})
 
 
@@ -39,8 +39,8 @@ def edit(request, link_id):
     if request.method == 'POST':
         if request.POST.get('delete', None) == 'yes':
             instance.delete()
-            return redirect('links')
+            return redirect('links:list')
         if form.is_valid():
             form.save()
-            return redirect('links')
+            return redirect('links:list')
     return render(request, 'links/form.html', {'form': form})
