@@ -4,14 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+django = ">=2.2.13"
 django-static-precompiler = "*"
 django-dotenv = "*"
 dj-database-url = "*"
 django-extensions = "*"
-psycopg2 = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
-[requires]
-python_version = "3.6"
+[pipenv]
+allow_prereleases = true
